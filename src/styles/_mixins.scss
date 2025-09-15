@@ -1,0 +1,11 @@
+@use 'variables' as *;
+@use 'sass:map';
+
+// Mixin for responsive breakpoints
+@mixin respond-to($size) {
+  $value: map.get($breakpoints, $size);
+
+  @media (min-width: $value) {
+    @content;
+  }
+}

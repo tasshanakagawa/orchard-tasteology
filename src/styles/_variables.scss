@@ -10,3 +10,11 @@ $color-white: #ffffff;
 // Typography
 $font-family-base: "Open Sans", sans-serif;
 $font-family-headings: "Open Sans", sans-serif;
+
+// Breakpoints
+$breakpoints: (
+  'sm': 480px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);

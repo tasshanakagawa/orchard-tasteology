@@ -2,7 +2,8 @@
  * Base
  */
 
-@use './variables' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 // Reset
 *,
@@ -29,7 +30,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 60px 16px;
   margin: auto;
 
-  @media (min-width: 1200px) {
+  // @media (min-width: 1200px) {
+  //   padding: 120px 0;
+  // }
+
+  @include respond-to('xl') {
     padding: 120px 0;
   }
 }
