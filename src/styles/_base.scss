@@ -25,5 +25,11 @@ h1, h2, h3, h4, h5, h6 {
 
 // Base
 .container {
-  padding: 120px 147px;
+  max-width: 1140px;
+  padding: 60px 16px;
+  margin: auto;
+
+  @media (min-width: 1200px) {
+    padding: 120px 0;
+  }
 }
