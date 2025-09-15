@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
   return {
     entry: './src/js/index.js',
     output: {
-      filename: 'bundle.js',
+      filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true, // clears dist before each build
     },
