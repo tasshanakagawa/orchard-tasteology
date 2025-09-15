@@ -1,0 +1,98 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.gallery {
+  background-color: $color-dark;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include respond-to('md') {
+      flex-direction: row;
+    }
+  }
+
+  // Image grid
+  &__images {
+    display: grid;
+    gap: 10px;
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+
+  &__image {
+    color: $color-white;
+    overflow: hidden;
+    cursor: pointer;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:first-child {
+      grid-row: span 2;
+    }
+
+    &:hover {
+      > img {
+        transform: scale(1.1);
+      }
+    }
+
+    @include respond-to('md') {
+      width: 372px;
+    }
+  }
+
+  // Main content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: $color-white;
+  }
+  
+  &__title {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 33px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid $color-white;
+    padding-bottom: 30px;
+  }
+
+  &__description {
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 30px;
+  }
+
+  // Featured text
+  &__feature {
+
+    &-title {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 21px;
+      color: $color-accent;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    &-description {
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 30px;
+    }
+  }
+}

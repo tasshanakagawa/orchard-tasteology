@@ -32,6 +32,9 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        // generator: {
+        //   filename: 'assets/gallery/[name][ext]', // optional: output folder for images; test for production
+        // },
       }
     ],
   },
