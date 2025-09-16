@@ -4,17 +4,20 @@
     {
       "title": "Red",
       "description": "Red foods remind us of berries and soft fruits, so we anticipate a sweet taste.",
-      "image": "spoon-red.jpg"
+      "image": "spoon-red.jpg",
+      "alt": "Spoon with red food"
     },
     {
       "title": "Green",
       "description": "Fresh, zingy green colours are reminiscent of unripe fruit, promising sour or acid flavours.",
-      "image": "spoon-green.jpg"
+      "image": "spoon-green.jpg",
+      "alt": "Spoon with green food"
     },
     {
       "title": "White",
       "description": "White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat.",
-      "image": "spoon-white.jpg"
+      "image": "spoon-white.jpg",
+      "alt": "Spoon with white food"
     }
   ]
 }

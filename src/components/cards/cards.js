@@ -18,7 +18,7 @@ export const createCards = () => {
     const src = require(`../../assets/cards/${card.image}`);
 
     return `
-      <a href="#" target="_blank" rel="noopener noreferrer" class="cards__item">
+      <a href="#" class="cards__item" role="button" target="_blank" rel="noopener noreferrer" aria-label="Read more about ${card.title}">
         <div class="cards__item-image">
           <img src="${src}" alt="${card.alt}" />
         </div>
@@ -43,14 +43,11 @@ export const createCards = () => {
   container.innerHTML = component;
 
   // Capture link clicks and log to console
-  const cards = container.querySelectorAll('.cards__item');
-  cards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      // Prevent default behavior of anchor link for test purposes
-      e.preventDefault();
-
-      // Log title of clicked card
-      console.log(card.querySelector('.cards__item-title').textContent);
-    });
+  container.querySelector('.cards__wrapper').addEventListener('click', (e) => {
+    const card = e.target.closest('.cards__item');
+    if (!card) return;
+    
+    e.preventDefault();
+    console.log(card.querySelector('.cards__item-title').textContent);
   });
 }
