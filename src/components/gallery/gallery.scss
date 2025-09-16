@@ -13,7 +13,7 @@
     flex-direction: column;
     gap: 30px;
 
-    @include respond-to('md') {
+    @include respond-to('xl') {
       flex-direction: row;
     }
   }
@@ -26,10 +26,12 @@
     @include respond-to('md') {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
+      height: 600px;
     }
   }
 
   &__image {
+    height: 300px;
     color: $color-white;
     overflow: hidden;
     cursor: pointer;
@@ -48,11 +50,15 @@
 
     &:hover {
       > img {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
 
     @include respond-to('md') {
+      height: auto;
+    }
+
+    @include respond-to('xl') {
       width: 372px;
     }
   }
@@ -97,6 +103,64 @@
       font-size: 21px;
       font-weight: 700;
       line-height: 30px;
+    }
+  }
+
+  // Modal
+  &__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-dark, 0.9);
+    color: $color-white;
+    padding: 16px;
+    transition: all 0.2s ease-in-out;
+
+    // Modal container
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      height: 100%;
+    }
+
+    // Close button
+    &-close {
+      display: inline-block;
+      background-color: rgba($color-white, 0);
+      width: 44px;
+      height: 44px;
+      color: $color-white;
+      padding: 5px;
+      margin-left: auto;
+      border: 1px solid $color-white;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover, &:focus {
+        background-color: $color-white;
+        color: $color-dark;
+      }
+    }
+
+    // Main image
+    &-image {
+      height: 70vh;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
     }
   }
 }
