@@ -1,11 +1,11 @@
 /**
- * Title: Gallery
- * Type: JS Component
+ * @file gallery.js
+ * @description Renders a gallery section with images and content
  */
 
 import './gallery.scss';
 
-// Create HTML component
+// Creates the gallery section and injects it into the container
 export function createGallery() {
   const container = document.querySelector('.gallery');
 
@@ -16,14 +16,14 @@ export function createGallery() {
     { name: 'hard-boiled-eggs.jpg', alt: 'Top view of a tray of cracked eggs showing different levels of doneness' },
   ];
 
-  const generateGrid = images.map(img => {
+  const generateImageGrid = images.map(img => {
     const src = require(`../../assets/gallery/${img.name}`);
     return `<div class="gallery__image"><img src="${src}" alt="${img.alt}"></div>`;
   }).join('');
 
   const component = `
     <div class="container gallery__wrapper">
-      <div class="gallery__images">${generateGrid}</div>
+      <div class="gallery__images">${generateImageGrid}</div>
 
       <div class="gallery__content">
         <h2 class="gallery__title">What does cooking mean?</h2>
