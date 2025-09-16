@@ -1,5 +1,8 @@
-// Globals
+// Styles
 import '../styles/main.scss';
+
+// Assets
+import '../assets/favicon.ico';
 
 // Components
 import { createGallery } from '../components/gallery/gallery.js';

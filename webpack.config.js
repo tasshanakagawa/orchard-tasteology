@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// Check environment mode
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
@@ -9,7 +10,8 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true, // clears dist before each build
+    clean: true,
+    publicPath: devMode ? '/' : '/orchard-tasteology/',
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -30,22 +32,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: 'asset/resource',
-        // generator: {
-        //   filename: 'assets/gallery/[name][ext]', // optional: output folder for images; test for production
-        // },
       }
     ],
   },
-  // devServer: {
-  //   static: {
-  //     directory: path.resolve(__dirname, 'dist'),
-  //   },
-  //   hot: true,
-  //   port: 8080,
-  //   open: true,
-  // },
-  // devtool: devMode ? 'source-map' : false,
-  // mode: devMode ? 'development' : 'production',
+  mode: devMode ? 'development' : 'production',
+  devtool: devMode ? 'source-map' : false,
 };
