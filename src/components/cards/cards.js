@@ -14,7 +14,7 @@ export const createCards = () => {
   const container = document.querySelector('.cards');
 
   // Loop through JSON data and generate cards
-  const cardItems = data.map(card => {
+  const cardItems = data.cards.map(card => {
     const src = require(`../../assets/cards/${card.image}`);
 
     return `
@@ -32,7 +32,7 @@ export const createCards = () => {
 
   const component = `
     <div class="container">
-      <h2 class="cards__title">Taste the Colours</h2>
+      <h2 class="cards__title">${data.title}</h2>
       <div class="cards__wrapper">
         ${cardItems}
       </div>
