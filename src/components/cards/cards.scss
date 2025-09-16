@@ -70,10 +70,21 @@
 
     // Card title
     &-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       font-size: 21px;
       font-weight: 700;
       line-height: 30px;
       margin-bottom: 10px;
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: $color-accent;
+        transition: all 0.2s ease-in-out;
+      }
     }
 
     // Card description
@@ -81,6 +92,12 @@
       font-size: 21px;
       font-weight: 300;
       line-height: 30px;
+    }
+
+    &:hover, &:focus {
+      .cards__item-title:after {
+        width: 10%;
+      }
     }
   }
 }
