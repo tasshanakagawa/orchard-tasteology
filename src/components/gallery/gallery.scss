@@ -4,6 +4,7 @@
 
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
+@use '../../styles/animations' as *;
 
 .gallery {
   background-color: $color-dark;
@@ -34,6 +35,8 @@
     height: 300px;
     color: $color-white;
     overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
     cursor: pointer;
 
     > img {
@@ -41,11 +44,22 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transition: transform 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     &:first-child {
       grid-row: span 2;
+      animation: slideDown 0.5s ease-in-out forwards;
+    }
+
+    &:nth-child(2) {
+      animation: slideDown 0.5s ease-in-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    &:last-child {
+      animation: slideDown 0.5s ease-in-out forwards;
+      animation-delay: 0.6s;
     }
 
     &:hover, &:focus {
@@ -69,6 +83,9 @@
     flex-direction: column;
     gap: 30px;
     color: $color-white;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 1s;
   }
   
   &__title {
