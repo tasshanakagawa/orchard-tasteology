@@ -1,0 +1,86 @@
+/**
+ * Cards
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.cards {
+  background-color: $color-dark;
+
+  .container {
+    text-align: center;
+  }
+
+  // Component title
+  &__title {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 33px;
+    letter-spacing: 1.5px;
+    color: $color-white;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $color-white;
+  }
+
+  // 3-column container
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include respond-to('md') {
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+
+  // Single card item
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 1;
+    gap: 30px;
+    color: $color-white;
+    text-align: center;
+    text-decoration: none;
+
+    // Card image
+    &-image {
+      height: 300px;
+      color: $color-white;
+      overflow: hidden;
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    // Card contents
+    &-content {
+      padding: 0 30px;
+    }
+
+    // Card title
+    &-title {
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 30px;
+      margin-bottom: 10px;
+    }
+
+    // Card description
+    &-description {
+      font-size: 21px;
+      font-weight: 300;
+      line-height: 30px;
+    }
+  }
+}
