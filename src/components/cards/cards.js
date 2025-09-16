@@ -43,14 +43,14 @@ export const createCards = () => {
   container.innerHTML = component;
 
   // Capture link clicks and log to console
-  container.addEventListener('click', e => {
-    const cardItem = e.target.closest('.cards__item');
-    if (!cardItem) return;
+  const cards = container.querySelectorAll('.cards__item');
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Prevent default behavior of anchor link for test purposes
+      e.preventDefault();
 
-    // Prevent default behavior of anchor link for test purposes
-    e.preventDefault();
-
-    // Log title of clicked card
-    console.log(cardItem.querySelector('.cards__item-title').textContent);
+      // Log title of clicked card
+      console.log(card.querySelector('.cards__item-title').textContent);
+    });
   });
 }
